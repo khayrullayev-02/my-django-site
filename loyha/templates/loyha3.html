@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Agency - Biz veb-saytlar ishlab chiqamiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a0033 0%, #4a0080 50%, #8b00ff 100%);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6b9d;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone {
+            font-weight: bold;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .circle-placeholder {
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            backdrop-filter: blur(10px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff6b9d;
+            margin-bottom: 10px;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            padding: 80px 0;
+        }
+
+        .advantages h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .advantage-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .advantage-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .advantage-card p {
+            opacity: 0.8;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .projects h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .project-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 5px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .project-tabs {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .tab-button {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .circle-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        /* my style */
+
+.section-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #1b1b1d;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-title {
+    color: #fff;
+    font-weight: bold;
+}
+.view-btn {
+    background: #7d4dff;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 40px;
+}
+.view-all-btn {
+    background: #7d4dff;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.view-all-btn:hover {
+    background: #9c72ff;
+}
+
+        .services {
+            padding: 80px 0;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .service-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blog-container {
+                flex-direction: column;
+            }
+
+            .blog-nav {
+                display: none;
+            }
+
+            .blog-grid {
+                overflow-x: scroll;
+                padding: 0 20px;
+            }
+
+            .blog-card {
+                min-width: 300px;
+            }
+        }
+        /* loyiha */
+
+        .projects {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .projects h2 {
+            font-size: 36px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .project-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 5px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .project-tabs {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .tab-button {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Logo</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Bosh sahifa</a></li>
+                        <li><a href="#about">Kompaniya</a></li>
+                        <li><a href="#services">Xizmatlar</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Aloqa</a></li>
+                    </ul>
+                </nav>
+                <div class="contact-info">
+                    <span class="phone">+998 (90) 123-45-67</span>
+                    <a href="#contact" class="cta-button">Buyurtma berish</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Biz veb-saytlar, ilovalarni ishlab chiqamiz</h1>
+                    <p>Zamonaviy texnologiyalar yordamida sizning biznesingiz uchun professional veb-saytlar va mobil ilovalar yaratamiz. Yuqori sifat va tezkor yetkazib berish kafolatlanadi.</p>
+                    <a href="#contact" class="cta-button">Biz bilan bog'laning</a>
+                </div>
+                <div class="hero-image">
+                    <div class="circle-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Kompaniya haqida</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Bizning jamoamiz 5 yildan ortiq tajribaga ega bo'lib, 100 dan ortiq muvaffaqiyatli loyihalarni amalga oshirgan. Biz har bir mijozning ehtiyojlarini chuqur tahlil qilib, eng yaxshi yechimlarni taklif etamiz.</p>
+                    <p>Zamonaviy texnologiyalar va innovatsion yondashuvlar yordamida sizning biznesingizni raqamli olamda muvaffaqiyatli rivojlantirishga yordam beramiz.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div>Yillik tajriba</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div>Bajarilgan loyihalar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div>Mamnun mijozlar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div>Texnik yordam</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <div class="container">
+            <h2>Bizning afzalliklarimiz</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">🎯</div>
+                    <h3>Individual yondashuv</h3>
+                    <p>Har bir loyiha uchun maxsus yechim ishlab chiqamiz va mijozning barcha talablarini hisobga olamiz.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Tezkorlik</h3>
+                    <p>Loyihalarni belgilangan muddatlarda sifatli bajarib, mijozlarimizning vaqtini tejashga yordam beramiz.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🚀</div>
+                    <h3>Professional jamoat</h3>
+                    <p>Tajribali dasturchilar va dizaynerlardan iborat jamoamiz eng murakkab vazifalarni ham hal qiladi.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🎯</div>
+                    <h3>Sifat kafolati</h3>
+                    <p>Barcha loyihalar to'liq sinovdan o'tkaziladi va yuqori sifat standartlariga javob beradi.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Raqobatbardosh narx</h3>
+                    <p>Bozordagi eng maqbul narxlarda yuqori sifatli xizmatlar taklif etamiz.</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🚀</div>
+                    <h3>Texnik yordam</h3>
+                    <p>Loyiha tugagandan keyin ham doimiy texnik yordam va qo'llab-quvvatlash xizmatini taqdim etamiz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="portfolio">
+    <div class="container">
+        <h2 class="section-title">Bajargan loyihalarimiz</h2>
+
+        <div class="projects-grid">
+            {% for loyha in loyha_list %}
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="{{ loyha.images.url }}" alt="{{ loyha.title }}">
+                    <div class="overlay">
+                        <p class="project-title">{{ loyha.title }}</p>
+                        {% if loyha.link %}
+                            <a href="{{ loyha.link }}" class="view-btn" target="_blank">🔗</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if not show_all %}
+        <div class="view-all">
+            <a href="?all=1" class="view-all-btn">Barchasini ko‘rish</a>
+        </div>
+        {% endif %}
+    </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Bizning xizmatlar</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Veb saytlar</h3>
+                    <p>Modern veb saytlar va onlayn do'konlar yaratamiz. Responsive dizayn va yuqori tezlik kafolatlanadi.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>UI/UX Dizayn</h3>
+                    <p>Foydalanuvchi tajribasini yaxshilaydigan zamonaviy va intuitiv dizaynlar yaratamiz.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Mobil ilovalar</h3>
+                    <p>iOS va Android uchun yuqori sifatli mobil ilovalar ishlab chiqamiz. Native va cross-platform yechimlar.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>SMM</h3>
+                    <p>Ijtimoiy tarmoqlarda brendingizni rivojlantirish va mijozlar bilan muloqot o'rnatish xizmatlari.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🖼️</div>
+                    <h3>Grafik dizayn</h3>
+                    <p>Logo, brending, banner va boshqa grafik materiallar yaratish bo'yicha professional xizmatlar.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3>Motion dizayn</h3>
+                    <p>Animatsiya va motion graphics yordamida brendingizni jonlantirish va diqqatni jalb qilish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="contact">
+        <div class="container">
+            <p>&copy; 2024 Web Development Agency. Barcha huquqlar himoyalangan.</p>
+            <p>Telefon: +998 (90) 123-45-67 | Email: info@webagency.uz</p>
+        </div>
+    </footer>
+
+
+     <script>
+        function scrollBlog(direction) {
+            const blogGrid = document.getElementById('blogGrid');
+            const scrollAmount = 370; // Card width + gap
+            
+            if (direction === 1) {
+                blogGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            } else {
+                blogGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        // Auto-scroll functionality (optional)
+        let autoScrollInterval;
+
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                const blogGrid = document.getElementById('blogGrid');
+                const maxScroll = blogGrid.scrollWidth - blogGrid.clientWidth;
+                
+                if (blogGrid.scrollLeft >= maxScroll) {
+                    blogGrid.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollBlog(1);
+                }
+            }, 5000);
+        }
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollInterval);
+        }
+
+        // Start auto-scroll on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            startAutoScroll();
+            
+            // Stop auto-scroll when user interacts
+            const blogContainer = document.querySelector('.blog-container');
+            blogContainer.addEventListener('mouseenter', stopAutoScroll);
+            blogContainer.addEventListener('mouseleave', startAutoScroll);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a0b2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b5cf6;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.3));
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stats h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            background: rgba(139, 92, 246, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #8b5cf6;
+            margin-bottom: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(139, 92, 246, 0.1);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #8b5cf6, #a855f7);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #8b5cf6;
+        }
+
+        .service-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 80px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .portfolio-content {
+            padding: 20px;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 80px 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: #8b5cf6;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            background: rgba(139, 92, 246, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.3));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .team-name {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #8b5cf6;
+        }
+
+        .team-role {
+            opacity: 0.7;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #8b5cf6;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #8b5cf6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(139, 92, 246, 0.3);
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-image {
+                width: 300px;
+                height: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+
+            .hero-image {
+                width: 250px;
+                height: 250px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Logo</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Bosh sahifa</a></li>
+                        <li><a href="#about">Kompaniya haqida</a></li>
+                        <li><a href="#services">Xizmatlar</a></li>
+                        <li><a href="#portfolio">Loyihalar</a></li>
+                    </ul>
+                </nav>
+                <div class="header-right">
+                    <div class="contact-info">
+                        <span>📞 +998 99 123 45 67</span>
+                    </div>
+                    <button class="cta-button">Bog'lanish</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Biz veb-saytlar, ilovalarni ishlab chiqamiz</h1>
+                    <p>Zamonaviy texnologiyalar yordamida sizning biznesingiz uchun professional veb-saytlar va mobil ilovalar yaratamiz. Bizning tajribali jamoamiz har bir loyihaga individual yondashadi.</p>
+                    <button class="cta-button">Loyiha boshlash</button>
+                </div>
+                <div class="hero-image">
+                    <span>Hero Image</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2>Kompaniya haqida</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <p>Muvaffaqiyatli loyihalar</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <p>Yoqda tajriba</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <p>Mutaxassis xodimlar</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <p>Yoqda kafolat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Bizning xizmatlarimiz</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Veb-dizayn xizmatlari</h3>
+                    <p>Zamonaviy va foydalanuvchi-do'st dizaynlar yaratamiz. Har bir loyiha uchun noyob va professional yechimlar taklif etamiz.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Dasturlash</h3>
+                    <p>Yuqori sifatli kod yozish va zamonaviy texnologiyalardan foydalanish orqali barqaror va tez ishlaydigan dasturlar yaratamiz.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Professional xizmat</h3>
+                    <p>Mijozlarimizga professional yondashuv va yuqori sifatli xizmat ko'rsatish bizning asosiy maqsadimizdir.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Individual yechimlar</h3>
+                    <p>Har bir mijoz uchun maxsus yechimlar ishlab chiqamiz va ularning ehtiyojlariga mos keladigan mahsulotlar yaratamiz.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Dasturlash</h3>
+                    <p>Mobil ilovalar va veb-dasturlar yaratishda keng tajribaga egamiz. Zamonaviy texnologiyalardan foydalanamiz.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Professional xizmat</h3>
+                    <p>Biznes ehtiyojlaringizga mos keladigan professional yechimlar taklif etamiz va uzoq muddatli hamkorlik o'rnatamiz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Bizlardan loyihalarimiz</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Loyiha 1</div>
+                    <div class="portfolio-content">
+                        <h3>Korporativ veb-sayt</h3>
+                        <p>Zamonaviy dizayn va funksionallik</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Loyiha 2</div>
+                    <div class="portfolio-content">
+                        <h3>E-commerce platforma</h3>
+                        <p>Onlayn savdo uchun to'liq yechim</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Loyiha 3</div>
+                    <div class="portfolio-content">
+                        <h3>Mobil ilova</h3>
+                        <p>iOS va Android uchun</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Loyiha 4</div>
+                    <div class="portfolio-content">
+                        <h3>Portfolio veb-sayt</h3>
+                        <p>Shaxsiy brending uchun</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Loyiha 5</div>
+                    <div class="portfolio-content">
+                        <h3>Boshqaruv tizimi</h3>
+                        <p>CRM va ERP yechimlar</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">Loyiha 6</div>
+                    <div class="portfolio-content">
+                        <h3>Ta'lim platformasi</h3>
+                        <p>Onlayn o'qitish tizimi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Bizning xizmatlar</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Veb saytlar</h3>
+                    <p>Barcha turdagi veb-saytlar yaratish va qo'llab-quvvatlash xizmatlari.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>UX/UI Dizayn</h3>
+                    <p>Foydalanuvchi tajribasi va interfeys dizayni bo'yicha professional xizmatlar.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Mobil ilovalar</h3>
+                    <p>iOS va Android platformalari uchun mobil ilovalar ishlab chiqish.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💡</div>
+                    <h3>SMM xizmatlari</h3>
+                    <p>Ijtimoiy tarmoqlarda marketing va reklama xizmatlari.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Grafik dizayn</h3>
+                    <p>Logo, brending va boshqa grafik dizayn xizmatlari.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Maxsus dasturlar</h3>
+                    <p>Biznes ehtiyojlariga mos maxsus dasturiy ta'minot yaratish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+            <h2 class="section-title">Blog yangiklarimiz</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">Blog 1</div>
+                    <div class="blog-content">
+                        <div class="blog-date">15 Dekabr 2024</div>
+                        <h3>Veb-dizayn tendensiyalari 2025</h3>
+                        <p>Kelgusi yilda kuzatilishi kutilayotgan asosiy veb-dizayn yo'nalishlari haqida.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">Blog 2</div>
+                    <div class="blog-content">
+                        <div class="blog-date">12 Dekabr 2024</div>
+                        <h3>React.js yangi imkoniyatlari</h3>
+                        <p>React.js ning eng so'nggi versiyasidagi yangi funksiyalar va imkoniyatlar.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">Blog 3</div>
+                    <div class="blog-content">
+                        <div class="blog-date">10 Dekabr 2024</div>
+                        <h3>SEO optimizatsiya bo'yicha maslahatlar</h3>
+                        <p>Veb-saytingizni qidiruv tizimlarida yuqori o'rinlarga chiqarish usullari.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image">Blog 4</div>
+                    <div class="blog-content">
+                        <div class="blog-date">8 Dekabr 2024</div>
+                        <h3>Mobil ilovalar kelajagi</h3>
+                        <p>Mobil texnologiyalar rivojlanishi va kelajakdagi imkoniyatlar haqida.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">Bizning jamoa</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">Foto</div>
+                    <div class="team-name">Sardorbek Boboyev</div>
+                    <div class="team-role">Bosh dasturchi</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">Foto</div>
+                    <div class="team-name">Azamatjon Karimov</div>
+                    <div class="team-role">Frontend dasturchi</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">Foto</div>
+                    <div class="team-name">Shohruhbek Rahimov</div>
+                    <div class="team-role">Backend dasturchi</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">Foto</div>
+                    <div class="team-name">Shohbozjon Saidov</div>
+                    <div class="team-role">UX/UI Dizayner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LOGO</h3>
+                    <p>Biz zamonaviy veb-saytlar va ilovalar yaratish bo'yicha professional xizmatlar ko'rsatamiz.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Xizmatlar</h3>
+                    <ul>
+                        <li><a href="#">Veb-dizayn</a></li>
+                        <li><a href="#">Dasturlash</a></li>
+                        <li><a href="#">Mobil ilovalar</a></li>
+                        <li><a href="#">SEO optimizatsiya</a></li>
+                        <li><a href="#">Grafik dizayn</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kompaniya</h3>
+                    <ul>
+                        <li><a href="#">Biz haqimizda</a></li>
+                        <li><a href="#">Jamoa</a></li>
+                        <li><a href="#">Loyihalar</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Aloqa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Aloqa</h3>
+                    <ul>
+                        <li>📞 +998 99 123 45 67</li>
+                        <li>📧 info@company.uz</li>
+                        <li>📍 Toshkent, O'zbekiston</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Company Name. Barcha huquqlar himoyalangan.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
